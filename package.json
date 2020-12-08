@@ -1,11 +1,14 @@
 {
   "name": "printdirlog",
-  "version": "1.0.1",
+  "version": "1.0.5",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "printDir -d E:\\program\\eps-yls-core-wx 30"
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Maikscau/printdirlog.git"
   },
   "author": "mwq",
   "license": "ISC",
