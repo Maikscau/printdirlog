@@ -1,0 +1,15 @@
+{
+  "name": "printdirlog",
+  "version": "1.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "printDir -d E:\\program\\eps-yls-core-wx 30"
+  },
+  "author": "mwq",
+  "license": "ISC",
+  "bin": {
+    "printdir": "index.js"
+  }
+}
