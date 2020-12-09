@@ -28,9 +28,9 @@ const readdir = (entry, ignore = []) => {
 			})
 			if (isDefaultIgnore) continue
 
-			// 忽略.gitignore文件内的目录和文件
+			// 忽略.gitignore文件内的目录
 			const isIgnore = ignore.find(g => {
-				return g.startsWith(item) && g.endsWith('/')
+				return (g.startsWith(item) || g.startsWith(`/${item}`)) && g.endsWith('/')
 			})
 			if (isIgnore) continue
 
@@ -42,7 +42,7 @@ const readdir = (entry, ignore = []) => {
 		for (let i = 0; i < dirInfo.length; i++) {
 			const item = dirInfo[i]
 
-			// 忽略默认配置的目录和文件
+			// 忽略默认配置的文件
 			const isDefaultIgnore = defaultIgnore.find(g => {
 				return g.startsWith(item) && !g.endsWith('/')
 			})
