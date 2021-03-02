@@ -84,7 +84,6 @@ const printTree = (tree, max, indent = 0) => {
 const linelist = []
 
 const printDirectory = async (entry, isTxt, max = 30) => {
-	console.log(entry, max, isTxt)
 	try {
 		// 获取gitignore
 		const filename = `${entry}/.gitignore`

@@ -99,8 +99,8 @@ const writeDirToTxt = (linelist) => {
 	if (fs.existsSync(txtFile)) {
 		fs.unlinkSync(txtFile)
 	}
-	linelist.forEach(line => {
-		fs.writeFileSync(txtFile, '\r\n', { flag: 'a' })
+	linelist.forEach((line, index) => {
+		if (index !== 0) fs.writeFileSync(txtFile, '\r\n', { flag: 'a' })
 		fs.writeFileSync(txtFile, line, { flag: 'a' })
 	})	
 }
