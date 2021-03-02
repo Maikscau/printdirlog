@@ -91,7 +91,22 @@ const getFileContentToArray = (filename) => {
 	})
 }
 
+/* 写入到txt文件 */
+const writeDirToTxt = (linelist) => {
+	const cmdDir = path.resolve('./')
+	const txtFile = path.join(cmdDir, 'dirlog.txt')
+	// 删除可能存在的文件
+	if (fs.existsSync(txtFile)) {
+		fs.unlinkSync(txtFile)
+	}
+	linelist.forEach(line => {
+		fs.writeFileSync(txtFile, '\r\n', { flag: 'a' })
+		fs.writeFileSync(txtFile, line, { flag: 'a' })
+	})	
+}
+
 module.exports = {
 	readdir,
-	getFileContentToArray
+	getFileContentToArray,
+	writeDirToTxt
 }

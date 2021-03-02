@@ -4,14 +4,28 @@
 ## 二、使用
 1.安装 `npm i printdirlog -g`
 
-2.使用 `printdir -d {目录的系统路径} [每行的长度]`，注意：win系统和Linux系统的路径分隔符有区别
+2.使用 `printdir -d <需打印的目录根路径> [-t] [len]`
 
-3.输出的目录结构放到`markdown文件的代码块`中（否则格式混乱）
+    注意：win系统和Linux系统的路径分隔符有区别
 
-### 示例：
-命令： `printdir -d E:\myproject\printDir 30`
+| 参数 | 说明 |
+| :-------- | :--------|
+| -d  | 必选，标识参数后的字符为需要打印的目录根路径 |
+| -t  | 可选，在当前命令行运行目录下生成打印目录内容的txt文件 |
+| len | 可选，注释标识符#距离行首的位置 |
 
-输出：
+\
+3.输出的目录结构放到 `markdown文件的代码块` 中（否则格式混乱）
+
+4.输出的目录结构txt文件dirlog.txt在运行当前命令的目录下
+
+## 三、示例：
+在目录 C:\Users\desktop 执行命令
+
+`printdir -d E:\myproject\printDir -t 30`
+
+
+### 输出：
 
 ```
 |--commands                  # 此处写注释
@@ -25,3 +39,7 @@
 |--package.json              #
 |--README.md                 #
 ```
+
+### 目录结构文件：
+
+    C:\Users\desktop\dirlog.txt

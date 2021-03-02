@@ -1,4 +1,4 @@
-const { readdir, getFileContentToArray } = require('../utils/index.js')
+const { readdir, getFileContentToArray, writeDirToTxt } = require('../utils/index.js')
 
 /* 长路径转换为短路径 */
 const getShortPath = (path, entry) => {
@@ -72,6 +72,7 @@ const printTree = (tree, max, indent = 0) => {
 		const finalLine = `${mainLine}${new Array(leftLength).join(' ')}#`
 		// 打印路径，必须！
 		console.log(finalLine)
+		linelist.push(finalLine)
 		if (typeof tree[i] === 'object') {
 			const nextIndent = indent + 1
 			printTree(tree[i], max, nextIndent)
@@ -79,7 +80,11 @@ const printTree = (tree, max, indent = 0) => {
 	}
 }
 
-const printDirectory = async (entry, max = 30) => {
+// 储存输出目录行
+const linelist = []
+
+const printDirectory = async (entry, isTxt, max = 30) => {
+	console.log(entry, max, isTxt)
 	try {
 		// 获取gitignore
 		const filename = `${entry}/.gitignore`
@@ -96,6 +101,9 @@ const printDirectory = async (entry, max = 30) => {
 		
 		// 输出目录树
 		printTree(treeDirs, max)
+
+		// 写入到txt文件
+		if (isTxt) writeDirToTxt(linelist)
 	} catch (error) {
 		console.log('路径参数错误，请注意使用正确的路径分隔符！')
 	}

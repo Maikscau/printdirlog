@@ -17,7 +17,14 @@ commands.forEach((command, index) => {
 				console.log('缺少路径参数')
 				return
 			}
-			printDirectory(commands[index + 1], commands[index + 2] || 30)
+			const isTxt = commands.includes('-t')
+			const parseCmd = parseInt(commands[index + 3])
+			const maxlen = typeof parseCmd === 'number' 
+				? Number.isNaN(parseCmd) 
+					? 30
+					: parseCmd
+				: 30
+			printDirectory(commands[index + 1], isTxt, maxlen)
 			break
 	}
 })
