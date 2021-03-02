@@ -21,5 +21,6 @@
     "dir",
     "catalog",
     "log"
-  ]
+  ],
+  "dependencies": {}
 }

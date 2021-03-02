@@ -80,22 +80,25 @@ const printTree = (tree, max, indent = 0) => {
 }
 
 const printDirectory = async (entry, max = 30) => {
-	// 获取gitignore
-	const filename = `${entry}/.gitignore`
-	const ignore = await getFileContentToArray(filename)
+	try {
+		// 获取gitignore
+		const filename = `${entry}/.gitignore`
+		const ignore = await getFileContentToArray(filename)
 
-  // 获取目录的绝对路径数组
-	const absoluteDirs = readdir(entry, ignore)
+		// 获取目录的绝对路径数组
+		const absoluteDirs = readdir(entry, ignore)
 
-  // 长路径转换为短路径
-  const shortDirs = absoluteDirs.map((i) => getShortPath(i, entry))
+		// 长路径转换为短路径
+		const shortDirs = absoluteDirs.map((i) => getShortPath(i, entry))
 
-  // 短路径转换为多维数组
-  const treeDirs = getTreeDirs(shortDirs)
-	
-	// 输出目录树
-	printTree(treeDirs, max)
-
+		// 短路径转换为多维数组
+		const treeDirs = getTreeDirs(shortDirs)
+		
+		// 输出目录树
+		printTree(treeDirs, max)
+	} catch (error) {
+		console.log('路径参数错误，请注意使用正确的路径分隔符！')
+	}
 }
 
 module.exports = {
