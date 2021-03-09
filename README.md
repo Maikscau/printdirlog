@@ -42,4 +42,4 @@
 
 ### 目录结构文件：
 
-    C:\Users\desktop\dirlog.txt
+    C:\Users\desktop\dirlog.txt (请使用编辑器打开，而不是记事本)
