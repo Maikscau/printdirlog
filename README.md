@@ -2,7 +2,7 @@
 
 ## Introduction
 ***
-Use to print corresponding project directory quickly, read file '.gitignore' automatically to ignore corresponding files and path.
+Used to print corresponding project directory path quickly, read file '.gitignore' automatically to ignore corresponding files and path.
 
 ## Use
 ***
