@@ -14,7 +14,7 @@ Used to print corresponding project directory path quickly, read file '.gitignor
 
 | Parameter | Description |
 | :-------- | :--------|
-| -d  | required, enter the directory path at the back |
+| -d  | required, enter the directory path at the back（must be an absolute path） |
 | -t  | optional, output txt file at current directory (Avoiding the differrences in system code, use code editor to open txt file, do not use system notepad) |
 | len | optional, the distance from identifier '#' to the beginning of the line |
 <br/>
